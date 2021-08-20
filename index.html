@@ -102,13 +102,13 @@
           <!-- jquery: wait for full document to load before we can attach aladin to div -->
           $(document).ready(function() {
              <!-- launch: attach aladin to id aladin-lite-div -->
-             var aladin = A.aladin('#aladin-lite-div', {
-                 survey: "P/DSS2/color", 
-                 fov: 1.5, target: "NGC 4388",
-                 <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
-                 showFullscreenControl: false,
-                 showZoomControl: false,
-             })
+             //var aladin = A.aladin('#aladin-lite-div', {
+             //    survey: "P/DSS2/color", 
+             //    fov: 1.5, target: "NGC 4388",
+             //    <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
+             //    showFullscreenControl: false,
+             //    showZoomControl: false,
+             //})
           })
       </script>
    </head>
@@ -119,20 +119,30 @@
      <table>
         <tr>
             <td id='aladin-lite-div' class='my-app' rowspan=2 colspan=2></td>
-            <td class='my-target' colspan=3>Target</td>
+            <td class='my-target' colspan=3>
+<form>
+  <label for="fname">Target:</label>
+  <input type="text" id="fname" name="fname" value="M81">
+</form>
+            </td>
         </tr>
         <tr>
-            <td rowspan=5 class='my-functions'>f</td>
+            <td rowspan=5 class='my-functions'>
+<form action="/action_page.php">
+  <input type="submit" value="+"><br>
+  <input type="submit" value="-">
+</form> 
+            </td>
             <td class='my-ned' colspan=2>Cutout</td> 
         </tr>
         <tr>
             <td class='my-glyph' rowspan=4>Panstars
-                <!-- <img src="PSVLASSgreyDodge-2.jpg" width=200px> -->
+                <img src="imgs/PSVLASSgreyDodge-2.jpg" width=200px> 
             </td>
             <td class='my-zoom' rowspan=4>SDSS
                 <!-- <img src="/Users/melanieszpigiel/aladin_app/transient-N4388v1-Plaid1C-1clr-grey.jpg" width=200px> -->
             </td>
-            <td class='my-cadc' colspan=2>CADC</td>
+            <td class='my-cadc' colspan=2><a href="http://drmichelleboyce.net/" target=_blank>CADC</a></td>
         </tr>
         <tr>
             <td class='my-archives' colspan=2>Archives</td>
@@ -146,7 +156,16 @@
         </tr>
         <tr>
             <td class='my-filter'>filter</td>
-            <td class='my-click'>click</td>
+            <td class='my-click'>
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+</form> 
+            </td>
         </tr>
      </table>
    </body>
