@@ -34,6 +34,7 @@
       <style>
           table {
              width: 1000px:
+             min-width: 1000px:
           }
           td.my-app {
              width: 500px;
@@ -42,7 +43,7 @@
           }
           td.my-cadc {
              width: 500px;
-             background-color:tomato;
+             background-color:#0000FF;
              text-align:center;
           } 
           td.my-slack {
@@ -54,7 +55,7 @@
              width: 500px;
              height: 50px;
              text-align:center;
-             background-color:Orange;
+             background-color:#9A9A9A;
           }
           td.my-ned {
              text-align:center;
@@ -81,6 +82,19 @@
              background-color:SlateBlue;
              max-width: 250px;
           }
+          td.my-functions {
+             text-align:center;
+             background-color:LightGray;
+          }
+          td.my-archives {
+             text-align:center;
+             background-color:Gray;
+          }
+          td.my-tool {
+             text-align:center;
+             background-color:Gray;
+}
+
       </style>
       
       <!-- Creation of Aladin Lite instance with initial parameters -->
@@ -93,6 +107,7 @@
                  fov: 1.5, target: "NGC 4388",
                  <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
                  showFullscreenControl: false,
+                 showZoomControl: false,
              })
           })
       </script>
@@ -104,23 +119,34 @@
      <table>
         <tr>
             <td id='aladin-lite-div' class='my-app' rowspan=2 colspan=2></td>
-            <td class='my-cadc' colspan=2>Cutout</td>
+            <td class='my-target' colspan=3>Target</td>
         </tr>
         <tr>
-            <td class='my-ned' colspan=2>CADC</td>
-            <td class='my-simbad'>SIMBAD</td>
-            <td class='my-vizier'>VIZIER</td>
+            <td rowspan=5 class='my-functions'>f</td>
+            <td class='my-ned' colspan=2>Cutout</td> 
         </tr>
         <tr>
-            <td class='my-glyph'>2</td>
-            <td class='my-zoom'>6</td>
-            <td rowspan=3 class='my-cirada'>
-                <img src="PSVLASSgreyDodge-2.jpg" width=200px >
+            <td class='my-glyph' rowspan=4>Panstars
+                <!-- <img src="PSVLASSgreyDodge-2.jpg" width=200px> -->
             </td>
-            <td  class='my-carta'>CARTA</td>
+            <td class='my-zoom' rowspan=4>SDSS
+                <!-- <img src="/Users/melanieszpigiel/aladin_app/transient-N4388v1-Plaid1C-1clr-grey.jpg" width=200px> -->
+            </td>
+            <td class='my-cadc' colspan=2>CADC</td>
         </tr>
         <tr>
-            <td colspan=2 class='my-slack'>5</td>
+            <td class='my-archives' colspan=2>Archives</td>
+        </tr>
+        <tr>
+            <td class='my-carta'>CARTA</td>
+            <td class='my-slack'>Slack</td>
+        </tr>
+        <tr>
+            <td class='my-tool' rowspan=2 colspan=2>Tool</td>
+        </tr>
+        <tr>
+            <td class='my-filter'>filter</td>
+            <td class='my-click'>click</td>
         </tr>
      </table>
    </body>
