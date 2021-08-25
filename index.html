@@ -115,13 +115,17 @@
           <!-- jquery: wait for full document to load before we can attach aladin to div -->
           $(document).ready(function() {
              <!-- launch: attach aladin to id aladin-lite-div -->
-             //var aladin = A.aladin('#aladin-lite-div', {
-             //    survey: "P/DSS2/color", 
-             //    fov: 1.5, target: "NGC 4388",
-             //    <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
+             var aladin = A.aladin('#aladin-lite-div', {
+                 survey: "P/DSS2/color", 
+                 fov: 1.5, target: "NGC 4388",
+                 <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
              //    showFullscreenControl: false,
              //    showZoomControl: false,
-             //})
+             //    showLayersControl: false,
+             //    showReticle: false,
+             //    showFrame: false,
+             //    showGotoControl: false,
+            //})
           })
       </script>
    </head>
@@ -146,7 +150,12 @@
   <input type="submit" value="-">
 </form> 
             </td>
-            <td class='my-ned' colspan=2>Cutout</td> 
+            <td class='my-ned' colspan=2>Cutout 
+            <form action="/action_page.php">
+                <input type="submit" value="radius"><br>
+                <input type="submit" value="mosiac"><br>
+            </form>
+            </td>
         </tr>
         <tr>
             <td class='my-glyph' rowspan=4>Panstars
@@ -168,13 +177,32 @@
             <td class='my-tool' rowspan=2 colspan=2>Tool</td>
         </tr>
         <tr>
-            <td class='my-filter'>filter</td>
+            <td class='my-filter'>
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">g</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">i</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">u</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">r</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">z</label
+</form>
+</td>
             <td class='my-click'>
 <form>
   <input type="radio" id="html" name="fav_language" value="HTML">
   <label for="html">g</label>
   <input type="radio" id="css" name="fav_language" value="CSS">
   <label for="css">i</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">u</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">r</label>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">z</label
 </form> 
             </td>
         </tr>
