@@ -105,9 +105,17 @@
              text-align:center;
              background-color:#D2D2D2;
           }
-          
-
-
+          .my-app-hidden {
+             display: none;
+          }
+          #my-vlass-toggle {
+             height:55px;
+             width:70px;
+          }
+          #my-image-zoom-in,
+          #my-image-zoom-out {
+             width:70px;
+          }
       </style>
       
       <!-- Creation of Aladin Lite instance with initial parameters -->
@@ -115,18 +123,34 @@
           <!-- jquery: wait for full document to load before we can attach aladin to div -->
           $(document).ready(function() {
              <!-- launch: attach aladin to id aladin-lite-div -->
-             var aladin = A.aladin('#aladin-lite-div', {
-                 survey: "P/DSS2/color", 
-                 fov: 1.5, target: "NGC 4388",
-                 <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
-             //    showFullscreenControl: false,
-             //    showZoomControl: false,
-             //    showLayersControl: false,
-             //    showReticle: false,
-             //    showFrame: false,
-             //    showGotoControl: false,
-            //})
-          })
+              //var aladin = A.aladin('#aladin-lite-div', {
+              //    survey: "P/DSS2/color", 
+              //    fov: 1.5, target: "NGC 4388",
+              //    <!-- I turned off the expantions arrows (https://aladin.u-strasbg.fr/AladinLite/doc/API/#init) -->
+              //    showFullscreenControl: false,
+              //    showZoomControl: false,
+              //    showLayersControl: false,
+              //    showReticle: false,
+              //    showFrame: false,
+              //    showGotoControl: false,
+              //})
+              $("#my-vlass-toggle").click(function(){
+                  //console.log("Hello World!")
+                  if ($(".my-app-goto-vlass-optical").hasClass("my-app-hidden")) {
+                      //console.log("show optical")
+                      $(".my-app-goto-vlass-optical").removeClass("my-app-hidden")
+                      $(".my-app-goto-vlass-transient").addClass("my-app-hidden")
+                      $(".my-app-vlass-optical").removeClass("my-app-hidden") 
+                      $(".my-app-vlass-transient").addClass("my-app-hidden") 
+                  } else {
+                      //console.log("show transient")
+                      $(".my-app-goto-vlass-optical").addClass("my-app-hidden")
+                      $(".my-app-goto-vlass-transient").removeClass("my-app-hidden")
+                      $(".my-app-vlass-optical").addClass("my-app-hidden") 
+                      $(".my-app-vlass-transient").removeClass("my-app-hidden") 
+                  }
+              })
+          });
       </script>
    </head>
    <body>
@@ -135,30 +159,39 @@
      <!-- <div id='aladin-lite-div' class='my-app'></div> -->
      <table>
         <tr>
-            <td id='aladin-lite-div' class='my-app' rowspan=2 colspan=2></td>
+            <td id='aladin-lite-div' class='my-app' rowspan=2 colspan=2>
+                <img class='my-app-vlass-transient' src="imgs/transient-N4388v1-Plaid1A-1clr.jpg" width=500px>
+                <img class='my-app-vlass-optical my-app-hidden' src="imgs/PSVLASSgreyDodge-2.jpg" width=500px>
+            </td>
             <td class='my-target' colspan=3>
-<form>
-  <label for="fname">Target:</label>
-  <input type="text" id="fname" name="fname" value="NGC 4388">
-</form>
+                <form>
+                  <label for="fname">Target:</label>
+                  <input type="text" id="fname" name="fname" value="NGC 4388">
+                </form>
             </td>
         </tr>
         <tr>
-            <td rowspan=6 class='my-functions'>
-<form action="/action_page.php">
-  <input type="submit" value="+"><br>
-  <input type="submit" value="-">
-</form> 
+            <td rowspan=6 valign="top" class='my-functions'>
+               <!-- <form action="/action_page.php">
+                  <input type="submit" value="+"><br>
+                  <input type="submit" value="-">
+                </form> --> 
+               <button id='my-vlass-toggle' type="button">
+                   <img class='my-app-goto-vlass-optical' src="imgs/SelectImageGlyph_optical.png" width=50px>
+                   <img class='my-app-goto-vlass-transient my-app-hidden' src="imgs/SelectImageGlyph_transient.png" width=50px>
+               </button><br><br>
+               <button id='my-image-zoom-in' type="button">+</button><br>
+               <button id='my-image-zoom-out' type="button">-</button><br>
             </td>
             <td class='my-ned' colspan=2>Cutout 
-            <form action="/action_page.php">
-                <input type="submit" value="radius"><br>
-                <input type="submit" value="mosiac"><br>
-            </form>
-<form>
-  <label for="fname">Coordinates:</label>
-  <input type="text" id="fname" name="fname" value="insert coordinates here">
-</form>
+                <form action="/action_page.php">
+                    <input type="submit" value="radius"><br>
+                    <input type="submit" value="mosiac"><br>
+                </form>
+                <form>
+                  <label for="fname">Coordinates:</label>
+                  <input type="text" id="fname" name="fname" value="insert coordinates here">
+                </form>
             </td>
         </tr>
         <tr>
@@ -168,13 +201,19 @@
             <td class='my-zoom' rowspan=4>SDSS
                 <img src="imgs/N4388SDSS.jpg" width=200px>
             </td>
-            <td class='my-cadc' colspan=2><a href="https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/search/"target=_blank>CADC</a></td>
+            <td class='my-cadc' colspan=2>
+                <a href="https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/search/"target=_blank>CADC</a>
+            </td>
         </tr>
         <tr>
-            <td class='my-archives' colspan=2><a href="http://ned.ipac.caltech.edu/" target=_blank>Ned</a> <a href="https://cds.u-strasbg.fr/" target=_blank>CDS</a></td>
+            <td class='my-archives' colspan=2>
+                <a href="http://ned.ipac.caltech.edu/" target=_blank>Ned</a> <a href="https://cds.u-strasbg.fr/" target=_blank>CDS</a>
+            </td>
         </tr>
         <tr>
-            <td class='my-carta'><a href="https://cartavis.org/" target=_blank>CARTA</a></td>
+            <td class='my-carta'>
+                <a href="https://cartavis.org/" target=_blank>CARTA</a>
+            </td>
             <td class='my-slack'>Slack</td>
         </tr>
         <tr>
@@ -182,32 +221,32 @@
         </tr>
         <tr>
             <td class='my-filter'>
-<form>
-  <input type="radio" id="html" name="fav_language" value="HTML">
-  <label for="html">g</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">i</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">u</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">r</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">z</label
-</form>
-</td>
+                <form>
+                  <input type="radio" id="html" name="fav_language" value="HTML">
+                  <label for="html">g</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">i</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">u</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">r</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">z</label>
+                </form>
+            </td>
             <td class='my-click'>
-<form>
-  <input type="radio" id="html" name="fav_language" value="HTML">
-  <label for="html">g</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">i</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">u</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">r</label>
-  <input type="radio" id="css" name="fav_language" value="CSS">
-  <label for="css">z</label
-</form> 
+                <form>
+                  <input type="radio" id="html" name="fav_language" value="HTML">
+                  <label for="html">g</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">i</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">u</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">r</label>
+                  <input type="radio" id="css" name="fav_language" value="CSS">
+                  <label for="css">z</label>
+                </form> 
             </td>
         </tr>
      </table>
