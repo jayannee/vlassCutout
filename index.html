@@ -116,6 +116,13 @@
           #my-image-zoom-out {
              width:70px;
           }
+          .my-app-cutout {
+             text-align:left;
+             padding-left:15px;
+          }
+          .my-app-cutout-btn { 
+             width:75px;
+          }
       </style>
       
       <!-- Creation of Aladin Lite instance with initial parameters -->
@@ -164,6 +171,7 @@
                 <img class='my-app-vlass-optical my-app-hidden' src="imgs/PSVLASSgreyDodge-2.jpg" width=500px>
             </td>
             <td class='my-target' colspan=3>
+                <br>
                 <form>
                   <label for="fname">Target:</label>
                   <input type="text" id="fname" name="fname" value="NGC 4388">
@@ -183,22 +191,27 @@
                <button id='my-image-zoom-in' type="button">+</button><br>
                <button id='my-image-zoom-out' type="button">-</button><br>
             </td>
-            <td class='my-ned' colspan=2>Cutout 
-                <form action="/action_page.php">
-                    <input type="submit" value="radius"><br>
-                    <input type="submit" value="mosiac"><br>
-                </form>
-                <form>
+            <td class='my-ned' colspan=2>
+                <!-- <form action="/action_page.php"> -->
+                <form class='my-app-cutout'> 
+                    Cutout<br> 
+                    <input class='my-app-cutout-btn' type="submit" value="radius"><br>
+                    <input class='my-app-cutout-btn' type="submit" value="mosiac"><br>
                   <label for="fname">Coordinates:</label>
                   <input type="text" id="fname" name="fname" value="insert coordinates here">
-                </form>
+                </form> 
+               <!-- <button type=button>Radius</button><br>
+                <button type=button>Mosaic</button><br>
+                <input type="text" id="fname" name="fname" value="insert coordinates here"> -->
             </td>
         </tr>
         <tr>
-            <td class='my-glyph' rowspan=4>Panstars
+            <td class='my-glyph' valign=top rowspan=4>
+                PanSTARRS<br>
                 <img src="imgs/N4388PanSTARRS.jpg" width=200px> 
             </td>
-            <td class='my-zoom' rowspan=4>SDSS
+            <td class='my-zoom' valign=top rowspan=4>
+                SDSS<br>
                 <img src="imgs/N4388SDSS.jpg" width=200px>
             </td>
             <td class='my-cadc' colspan=2>
