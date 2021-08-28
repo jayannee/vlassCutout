@@ -123,6 +123,15 @@
           .my-app-cutout-btn { 
              width:75px;
           }
+          .my-coordinates {
+             text-align:left;
+          }
+          .my-mosaic {
+             text-align:left;
+          }
+          .my-text-mosaic {
+             text-align:left;
+          }
       </style>
       
       <!-- Creation of Aladin Lite instance with initial parameters -->
@@ -195,8 +204,20 @@
                 <!-- <form action="/action_page.php"> -->
                 <form class='my-app-cutout'> 
                     Cutout<br> 
-                    <input class='my-app-cutout-btn' type="submit" value="radius"><br>
-                    <input class='my-app-cutout-btn' type="submit" value="mosiac"><br>
+                <form>
+                  <label for="fname">Radius:</label>
+                  <input type="text" id="fname" name="fname" value="30">
+                </form>
+           <p class='my-text-mosaic'>Mosaic:</p>
+            <form class='my-mosaic' action="/action_page.php">
+                <input list="browsers" name="browser">
+              <datalist id="browsers">
+                <option value="None, no mosaicking">
+                <option value="DATE-OBS,mosaic when needed">
+                <option value="MOSAIC">
+              </datalist>
+            </form>
+            <form class='my-coordinates'>    
                   <label for="fname">Coordinates:</label>
                   <input type="text" id="fname" name="fname" value="insert coordinates here">
                 </form> 
