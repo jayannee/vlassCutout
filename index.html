@@ -102,7 +102,7 @@
              background-color:#F0F0F0;
           }
           td.my-target {
-             text-align:center;
+             text-align:left;
              background-color:#D2D2D2;
           }
           .my-app-hidden {
@@ -124,13 +124,19 @@
              width:75px;
           }
           .my-coordinates {
-             text-align:left;
+             text-align:right;
           }
           .my-mosaic {
              text-align:left;
           }
           .my-text-mosaic {
              text-align:left;
+          }
+          #my-future-cirada-1 {
+             width:70px;
+          }
+          #my-future-cirada-2 {
+             width:70px;
           }
       </style>
       
@@ -185,6 +191,10 @@
                   <label for="fname">Target:</label>
                   <input type="text" id="fname" name="fname" value="NGC 4388">
                 </form>
+                <form class='my-coordinates'>
+                  <label for="fname">Coordinates:</label>
+                  <input type="text" id="fname" name="fname" value="insert coordinates here">
+                </form>
             </td>
         </tr>
         <tr>
@@ -199,6 +209,8 @@
                </button><br><br>
                <button id='my-image-zoom-in' type="button">+</button><br>
                <button id='my-image-zoom-out' type="button">-</button><br>
+               <button id='my-future-cirada-1' type="button">Future Cirada Project 1</button><br>
+               <button id='my-future-cirada-2' type="button">Future Cirada Project 2</button><br>
             </td>
             <td class='my-ned' colspan=2>
                 <!-- <form action="/action_page.php"> -->
@@ -217,10 +229,6 @@
                 <option value="MOSAIC">
               </datalist>
             </form>
-            <form class='my-coordinates'>    
-                  <label for="fname">Coordinates:</label>
-                  <input type="text" id="fname" name="fname" value="insert coordinates here">
-                </form> 
                <!-- <button type=button>Radius</button><br>
                 <button type=button>Mosaic</button><br>
                 <input type="text" id="fname" name="fname" value="insert coordinates here"> -->
