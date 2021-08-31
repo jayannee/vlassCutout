@@ -81,7 +81,7 @@
              max-width: 250px;
           }
           td.my-functions {
-             text-align:center;
+             text-align:right;
              background-color:LightGray;
           }
           td.my-archives {
@@ -102,7 +102,7 @@
              background-color:#F0F0F0;
           }
           td.my-target {
-             text-align:left;
+             text-align:right;
              background-color:#D2D2D2;
           }
           .my-app-hidden {
@@ -181,26 +181,27 @@
      <!-- <div id='aladin-lite-div' class='my-app'></div> -->
      <table>
         <tr>
-            <td id='aladin-lite-div' class='my-app' rowspan=2 colspan=2>
-                <img class='my-app-vlass-transient' src="imgs/transient-N4388v1-Plaid1A-1clr.jpg" width=500px>
-                <img class='my-app-vlass-optical my-app-hidden' src="imgs/PSVLASSgreyDodge-2.jpg" width=500px>
+            <td id='aladin-lite-div' class='my-app' rowspan=2 colspan=4>
+                <img class='my-app-vlass-transient' src="imgs/transient-N4388v1-Plaid1A-1clr.jpg" width=700px>
+                <img class='my-app-vlass-optical my-app-hidden' src="imgs/PSVLASSgreyDodge-2.jpg" width=700px>
             </td>
             <td class='my-target' colspan=3>
                 <br>
                 <form>
                   <label for="fname">Target:</label>
-                  <input type="text" id="fname" name="fname" value="NGC 4388">
+                  <input type="text" id="fname" name="fname" value="NGC 4388"><br>
                   <label for="fname">Coordinates:</label>
                   <input type="text" id="fname" name="fname" value="insert coordinates here">
                 </form>
             </td>
         </tr>
         <tr>
-            <td rowspan=6 valign="top" class='my-functions'>
+            <td valign="top" class='my-functions'>
                <!-- <form action="/action_page.php">
                   <input type="submit" value="+"><br>
                   <input type="submit" value="-">
                 </form> --> 
+               <button id='my-viewing' type="button">View </button><br><br>
                <button id='my-vlass-toggle' type="button">
                    <img class='my-app-goto-vlass-optical' src="imgs/SelectImageGlyph_optical.png" width=50px>
                    <img class='my-app-goto-vlass-transient my-app-hidden' src="imgs/SelectImageGlyph_transient.png" width=50px>
@@ -210,11 +211,43 @@
                <button id='my-future-cirada-1' type="button">Future Cirada Project 1</button><br>
                <button id='my-future-cirada-2' type="button">Future Cirada Project 2</button><br>
             </td>
-            <td class='my-ned' colspan=2>
+            <td class='my-ned' valign=top>
                 <!-- <form action="/action_page.php"> -->
                 <form class='my-app-cutout'> 
-                    Cutout<br> 
+                    Cutout Fuctions:<br> 
                 <form>
+                  <input type="checkbox" id="vlass" name="vehicle4" value="Bike">
+                  <label for="vehicle4"> VLASS</label><br>
+                  <input type="checkbox" id="epoch1.1" name="vehicle1" value="Bike">
+                  <label for="vehicle1"> Epoch 1.1</label><br>
+                  <input type="checkbox" id="epoch1.2" name="vehicle2" value="Car">
+                  <label for="vehicle2"> Epoch 1.2</label><br>
+                  <input type="checkbox" id="epoch2.1" name="vehicle3" value="Boat">
+                  <label for="vehicle3"> Epoch 2.1</label><br>
+                  <input type="checkbox" id="panstarrs" name="vehicle5" value="Bike">
+                  <label for="vehicle5"> PanSTARRS</label><br>
+                  <input type="checkbox" id="html" name="fav_language" value="HTML">
+                  <label for="html">g</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">i</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">u</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">r</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">z</label><br><br>
+<label for="vehicle5"> SDSS</label><br>
+                  <input type="checkbox" id="html" name="fav_language" value="HTML">
+                  <label for="html">g</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">i</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">u</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">r</label>
+                  <input type="checkbox" id="css" name="fav_language" value="CSS">
+                  <label for="css">z</label><br><br>
+                  
                   <label for="fname">Radius:</label>
                   <input type="text" id="fname" name="fname" value="30">
                 </form>
@@ -233,20 +266,20 @@
             </td>
         </tr>
         <tr>
-            <td class='my-glyph' valign=top rowspan=4>
+            <td class='my-glyph' valign=top rowspan=4 colspan=2>
                 PanSTARRS<br>
                 <img src="imgs/N4388PanSTARRS.jpg" width=200px> 
             </td>
-            <td class='my-zoom' valign=top rowspan=4>
+            <td class='my-zoom' valign=top rowspan=4 colspan=2>
                 SDSS<br>
-                <img src="imgs/N4388SDSS.jpg" width=200px>
+                <img src="imgs/scaledN388SDSS.jpeg" width=200px>
             </td>
-            <td class='my-cadc' colspan=2>
+            <td class='my-cadc'>
                 <a href="https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/search/"target=_blank>CADC</a>
             </td>
         </tr>
         <tr>
-            <td class='my-archives' colspan=2>
+            <td class='my-archives' >
                 <a href="https://cds.u-strasbg.fr/" target=_blank>CDS</a>
             </td>
         </tr>
@@ -254,7 +287,6 @@
             <td class='my-carta'>
                 <a href="https://cartavis.org/" target=_blank>CARTA</a>
             </td>
-            <td class='my-slack'>Slack</td>
         </tr>
         <tr>
             <td class='my-tool' rowspan=2 colspan=2>About This Tool:<br>
@@ -264,7 +296,7 @@ This is a front end visualization prototype for CIRADA projects. This tool was d
 </td>
         </tr>
         <tr>
-            <td class='my-filter'>
+            <td class='my-filter' colspan=2>
                 <form>
                   <input type="radio" id="html" name="fav_language" value="HTML">
                   <label for="html">g</label>
