@@ -42,7 +42,6 @@
              height: 500px; 
           }
           td.my-cadc {
-             width: 500px;
              background-color:#A5A5A5;
              text-align:center;
           } 
@@ -51,7 +50,6 @@
              background-color:LightGray;
           }
           td.my-carta {
-             width: 250px;
              text-align:center;
              background-color:#9A9A9A;
           }
@@ -91,7 +89,6 @@
           td.my-tool {
              text-align:center;
              background-color:Gray;
-             height:100px;
           }
           td.my-filter {
              text-align:center;
@@ -137,6 +134,11 @@
           }
           #my-future-cirada-2 {
              width:70px;
+          }
+          #my-download {
+             text-align:center;
+             background-color:#98BF64;
+             width:200px;
           }
       </style>
       
@@ -196,7 +198,7 @@
             </td>
         </tr>
         <tr>
-            <td valign="top" class='my-functions'>
+            <td valign="top" class='my-functions' rowspan=1.5>
                <!-- <form action="/action_page.php">
                   <input type="submit" value="+"><br>
                   <input type="submit" value="-">
@@ -223,9 +225,8 @@
                   <input type="checkbox" id="epoch1.2" name="vehicle2" value="Car">
                   <label for="vehicle2"> Epoch 1.2</label><br>
                   <input type="checkbox" id="epoch2.1" name="vehicle3" value="Boat">
-                  <label for="vehicle3"> Epoch 2.1</label><br>
-                  <input type="checkbox" id="panstarrs" name="vehicle5" value="Bike">
-                  <label for="vehicle5"> PanSTARRS</label><br>
+                  <label for="vehicle3"> Epoch 2.1</label><br><br>
+                  <label for="vehicle5"> PanSTARRS:</label><br>
                   <input type="checkbox" id="html" name="fav_language" value="HTML">
                   <label for="html">g</label>
                   <input type="checkbox" id="css" name="fav_language" value="CSS">
@@ -236,7 +237,7 @@
                   <label for="css">r</label>
                   <input type="checkbox" id="css" name="fav_language" value="CSS">
                   <label for="css">z</label><br><br>
-<label for="vehicle5"> SDSS</label><br>
+<label for="vehicle5"> SDSS:</label><br>
                   <input type="checkbox" id="html" name="fav_language" value="HTML">
                   <label for="html">g</label>
                   <input type="checkbox" id="css" name="fav_language" value="CSS">
@@ -251,14 +252,17 @@
                   <label for="fname">Radius:</label>
                   <input type="text" id="fname" name="fname" value="30">
                 </form>
-           <p class='my-text-mosaic'>Mosaic:</p>
+           <p class='my-text-mosaic'>Group By:</p>
             <form class='my-mosaic' action="/action_page.php">
                 <input list="browsers" name="browser">
               <datalist id="browsers">
                 <option value="None, no mosaicking">
                 <option value="DATE-OBS,mosaic when needed">
                 <option value="MOSAIC">
-              </datalist>
+              </datalist><br><br>
+             <label class='my-form-label'>Batch .csv File:</label>
+             <input type="file" name="batch_locations" accept=".csv" id="id_batch_locations"><br><br>
+            <button type=button id='my-download'>Download</button><br>
             </form>
                <!-- <button type=button>Radius</button><br>
                 <button type=button>Mosaic</button><br>
@@ -266,30 +270,32 @@
             </td>
         </tr>
         <tr>
-            <td class='my-glyph' valign=top rowspan=4 colspan=2>
+            <td class='my-glyph' valign=top rowspan=4 colspan=2.5>
                 PanSTARRS<br>
                 <img src="imgs/N4388PanSTARRS.jpg" width=200px> 
             </td>
-            <td class='my-zoom' valign=top rowspan=4 colspan=2>
+            <td class='my-zoom' valign=top rowspan=4 colspan=2.5>
                 SDSS<br>
                 <img src="imgs/scaledN388SDSS.jpeg" width=200px>
             </td>
-            <td class='my-cadc'>
+            <td class='my-cadc' colspan=0.5>
                 <a href="https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/en/search/"target=_blank>CADC</a>
-            </td>
-        </tr>
-        <tr>
-            <td class='my-archives' >
+            </td><br>
+            <td class='my-archives' colspan=0.5>
                 <a href="https://cds.u-strasbg.fr/" target=_blank>CDS</a>
             </td>
         </tr>
         <tr>
-            <td class='my-carta'>
+            <td class='my-carta' colspan=2>
                 <a href="https://cartavis.org/" target=_blank>CARTA</a>
             </td>
         </tr>
         <tr>
-            <td class='my-tool' rowspan=2 colspan=2>About This Tool:<br>
+            <td class='my-slack' colspan=2>
+                <a target=_blank>Collaborater on Slack</td>
+        </tr>
+        <tr>
+            <td class='my-tool' rowspan=2 >About This Tool:<br>
 This is a front end visualization prototype for CIRADA projects. This tool was developed for VLASS, but may have more projects in the future. This tool was created by Melanie Szpigiel, Professor Jayanne English, and Michelle Boyce
 (University of Manitoba) in 2021.
 
