@@ -7,7 +7,7 @@
    [1] API Reference
        https://aladin.u-strasbg.fr/AladinLite/doc/API/
 
-   [2] Customizing location of GUI elements
+7  [2] Customizing location of GUI elements
        If you want to customize the location of the GUI elements (full screen icon, zoom controller, goto controller, layers controller),
        the easiest way is to override the CSS properties of the corresponding class (respectively .aladin-fullscreen, .aladin-zoomControl,
        .aladin-gotoControl, .aladin-layersControl).
@@ -37,8 +37,8 @@
              min-width: 1000px:
           }
           td.my-app {
-             width: 500px;
-             max-width: 500px;
+             width: 700px;
+             max-width: 700px;
              height: 500px; 
           }
           td.my-cadc {
@@ -158,21 +158,36 @@
               //    showFrame: false,
               //    showGotoControl: false,
               //})
-              $("#my-vlass-toggle").click(function(){
-                  //console.log("Hello World!")
-                  if ($(".my-app-goto-vlass-optical").hasClass("my-app-hidden")) {
-                      //console.log("show optical")
-                      $(".my-app-goto-vlass-optical").removeClass("my-app-hidden")
-                      $(".my-app-goto-vlass-transient").addClass("my-app-hidden")
-                      $(".my-app-vlass-optical").removeClass("my-app-hidden") 
-                      $(".my-app-vlass-transient").addClass("my-app-hidden") 
-                  } else {
-                      //console.log("show transient")
-                      $(".my-app-goto-vlass-optical").addClass("my-app-hidden")
-                      $(".my-app-goto-vlass-transient").removeClass("my-app-hidden")
-                      $(".my-app-vlass-optical").addClass("my-app-hidden") 
-                      $(".my-app-vlass-transient").removeClass("my-app-hidden") 
-                  }
+              /////////////////////////////////////
+	      //var my_app_states = {
+	      //    optical_overlay: true,
+	      //    radio_noise: false,
+              //}
+              //$("#my-vlass-toggle").click(function(){
+              //    //console.log("Hello World!")
+              //    if ($(".my-app-goto-vlass-optical").hasClass("my-app-hidden")) {
+              //        //console.log("show optical")
+              //        $(".my-app-goto-vlass-optical").removeClass("my-app-hidden")
+              //        $(".my-app-goto-vlass-transient").addClass("my-app-hidden")
+              //        $(".my-app-vlass-optical").removeClass("my-app-hidden") 
+              //        $(".my-app-vlass-transient").addClass("my-app-hidden") 
+              //    } else {
+              //        //console.log("show transient")
+              //        $(".my-app-goto-vlass-optical").addClass("my-app-hidden")
+              //        $(".my-app-goto-vlass-transient").removeClass("my-app-hidden")
+              //        $(".my-app-vlass-optical").addClass("my-app-hidden") 
+              //        $(".my-app-vlass-transient").removeClass("my-app-hidden") 
+              //    }
+              //})
+              $('#my-optical-glyph').click(function(){
+	          $('.my-app-vlass-optical').removeClass('my-app-hidden')
+	          $('.my-app-vlass-transient').addClass('my-app-hidden')
+				    console.log("optical")
+              })
+              $('#my-transient-glyph').click(function(){
+	          $('.my-app-vlass-optical').addClass('my-app-hidden')
+	          $('.my-app-vlass-transient').removeClass('my-app-hidden')
+				    console.log("transient")
               })
           });
       </script>
@@ -213,7 +228,7 @@
                <button id='my-optical-glyph' type="button">
                    <img src="imgs/SelectImageGlyph_optical.png" width=50px>
                </button><br>
-               <button id='my-transient-glyph' type="button" href=imgs/transient-N4388v1-Plaid1A-1clr.jpg>
+               <button id='my-transient-glyph' type="button">
                    <img src="imgs/SelectImageGlyph_transient.png" width=50px>
                </button><br><br>
                <!-- <button id='my-vlass-toggle' type="button">
@@ -308,10 +323,12 @@
         </tr>
         <tr>
             <td class='my-tool' rowspan=2 >About This Tool:<br>
-This is a front end visualization prototype for CIRADA projects. This tool was developed for VLASS, but may have more projects in the future. This tool was created by Melanie Szpigiel, Professor Jayanne English, and Michelle Boyce
-(University of Manitoba) in 2021.
+             This is a front end visualization prototype for CIRADA projects. This tool was 
+	     developed for VLASS, but may have more projects in the future. 
+	     This tool was created by Melanie Szpigiel, Professor Jayanne English, and 
+	     Michelle Boyce (University of Manitoba) in 2021.
 
-</td>
+            </td>
         </tr>
         <tr>
             <td class='my-filter' colspan=2>
