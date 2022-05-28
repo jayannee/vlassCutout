@@ -78,8 +78,8 @@
              background-color:SlateBlue;
              max-width: 250px;
           }
-          td.my-functions {
-             text-align:right;
+          td.my-switches {
+             text-align:center;
              background-color:LightGray;
           }
           td.my-archives {
@@ -99,7 +99,7 @@
              background-color:#F0F0F0;
           }
           td.my-target {
-             text-align:right;
+             text-align:left;
              background-color:#D2D2D2;
           }
           .my-app-hidden {
@@ -130,17 +130,40 @@
              text-align:left;
           }
           #my-future-cirada-1 {
-             width:70px;
+             width:150px; text-align:center; align:center;
           }
           #my-future-cirada-2 {
-             width:70px;
+             width:150px; text-align:center
           }
           #my-download {
              text-align:center;
              background-color:#98BF64;
              width:200px;
-          }
-      </style>
+	  }
+	  .tooltip {
+	    position: relative;
+	    display: inline-block;
+	    border-bottom: 1px dotted black;
+	  }
+
+	  .tooltip .tooltiptext {
+	    visibility: hidden;
+	    width: 120px;
+	    background-color: black;
+	    color: #fff;
+	    text-align: center;
+	    border-radius: 6px;
+	    padding: 5px 0;
+
+	    /* Position the tooltip */
+	    position: absolute;
+	    z-index: 1;
+	  }
+
+	 .tooltip:hover .tooltiptext {
+	   visibility: visible;
+	 }	
+      </Style>
       
       <!-- Creation of Aladin Lite instance with initial parameters -->
       <script type="text/javascript">
@@ -193,7 +216,7 @@
       </script>
    </head>
    <body>
-     <h1>CIRADA/VLASS viewer and cutout server prototype 1</h1>
+     <h1>CIRADA/VLASS Viewer and Cutout Server &mdash; prototype 2 (May 28, 2022)</h1>
      <!-- attach: define id aladin-lite-div in div to attach aladin -->
      <!-- <div id='aladin-lite-div' class='my-app'></div> -->
      <table>
@@ -204,14 +227,13 @@
                 <img class='my-app-vlass-transient my-app-hidden' src="imgs/transient-N4388v1-Plaid1A-1clr.jpg" width=700px>
                 <img class='my-app-vlass-optical' src="imgs/PSVLASSgreyDodge-2.jpg" width=700px>
 	    </td>
-	    <!-- orig: colspan=3 and align not work in here.  Will
-      need to set columns in table to match column size of display--> 
+	    <!-- FIXED alignment using my-target for td cell. --> 
             <td class='my-target' colspan=2> 
 	      <br>
 	      <button id='my-viewing' type="button" valign="top" align="left">View </button><br>
                <!-- <form align="left">-->
-	       <form>
-                  <label for="fname">Target:</label>
+	       <form align="left">
+                  <label for="fname"> Target: &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;</label>
                   <input type="text" id="fname" name="fname" value="NGC 4388"><br>
                   <label for="fname">Coordinates:</label>
                   <input type="text" id="fname" name="fname" value="insert coordinates here">
@@ -219,31 +241,35 @@
             </td>
         </tr>
         <tr>
-            <td valign="top" class='my-functions' rowspan=1.5>
+            <td valign="top" class='my-switches' rowspan=1.5>
                <!-- <form action="/action_page.php">
                   <input type="submit" value="+"><br>
                   <input type="submit" value="-">
                 </form> --> 
-              <!-- <button id='my-viewing' type="button">View </button><br><br>-->
-               <button id='my-optical-glyph' type="button">
-                   <img src="imgs/SelectImageGlyph_optical.png" width=50px>
+              <!-- <button id='my-viewing' type="button">View
+      </button><br><br>-->
+	      <button id='my-image-zoom-in' type="button">+</button>&nbsp; &nbsp;
+               <button id='my-image-zoom-out' type="button">-</button><br><br>
+               <button id='my-optical-glyph' type="button">Optical +
+      VLASS Radio
+                   <img src="imgs/SelectImageGlyph_optical.png" width=150px>
                </button><br>
                <button id='my-transient-glyph' type="button">
-                   <img src="imgs/SelectImageGlyph_transient.png" width=50px>
+     VLASS Radio + VLASS background
+                   <img src="imgs/SelectImageGlyph_transient.png" width=150px>
                </button><br><br>
-               <!-- <button id='my-vlass-toggle' type="button">
-                   <img class='my-app-goto-vlass-optical' src="imgs/SelectImageGlyph_optical.png" width=50px>
-                   <img class='my-app-goto-vlass-transient my-app-hidden' src="imgs/SelectImageGlyph_transient.png" width=50px>
+               <!-- This toggle function is confusing -- was intended
+      to be buttons. <button id='my-vlass-toggle' type="button">
+                   <img class='my-app-goto-vlass-optical' src="imgs/SelectImageGlyph_optical.png" width=150px>
+                   <img class='my-app-goto-vlass-transient my-app-hidden' src="imgs/SelectImageGlyph_transient.png" width=150px>
                </button><br><br> -->
-               <button id='my-image-zoom-in' type="button">+</button><br>
-               <button id='my-image-zoom-out' type="button">-</button><br><br>
-               <button id='my-future-cirada-1' type="button">Future Cirada Project 1</button><br>
-               <button id='my-future-cirada-2' type="button">Future Cirada Project 2</button><br>
+               <button id='my-future-cirada-1' type="button">Placeholder for icon for Future Cirada Project 1</button><br>
+               <button id='my-future-cirada-2' type="button">Placeholder for icon for Future Cirada Project 2</button><br>
             </td>
             <td class='my-ned' valign=top>
                 <!-- <form action="/action_page.php"> -->
                 <form class='my-app-cutout'> 
-                    Cutout Fuctions:<br> 
+                  Select Data For Cutouts:<br> 
                 <form>
                   <input type="checkbox" id="vlass" name="vehicle4" value="Bike">
                   <label for="vehicle4"> VLASS</label><br>
@@ -264,7 +290,7 @@
                   <label for="css">r</label>
                   <input type="checkbox" id="css" name="fav_language" value="CSS">
                   <label for="css">z</label><br><br>
-                  <label for="vehicle5"> SDSS:</label><br>
+                  <label for="vehicle5"> SDSS: </label><br>
                   <input type="checkbox" id="html" name="fav_language" value="HTML">
                   <label for="html">g</label>
                   <input type="checkbox" id="css" name="fav_language" value="CSS">
@@ -287,7 +313,11 @@
                 <option value="DATE-OBS,mosaic when needed">
                 <option value="MOSAIC">
               </datalist><br><br>
+	      <div class="tooltip">
              <label class='my-form-label'>Batch .csv File:</label>
+	     <div class="tooltiptext">Instructions for format of batch file should be
+                  given here. </div>
+	     </div>
              <input type="file" name="batch_locations" accept=".csv" id="id_batch_locations"><br><br>
             <button type=button id='my-download'>Download</button><br>
             </form>
@@ -298,11 +328,11 @@
         </tr>
         <tr>
             <td class='my-glyph' valign=top rowspan=4 colspan=2.5>
-                PanSTARRS<br>
-                <img src="imgs/N4388PanSTARRS.jpg" width=200px> 
+               Select PanSTARRS Filter to Display<br>
+                <img src="imgs/N4388PanSTARRS.jpg" width=200px>
             </td>
             <td class='my-zoom' valign=top rowspan=4 colspan=2.5>
-                SDSS<br>
+               Select SDSS Filter to Display<br>
                 <img src="imgs/scaledN388SDSS.jpeg" width=200px>
             </td>
             <td class='my-cadc' colspan=0.5>Data Available at
@@ -322,12 +352,25 @@
                 <a target=_blank>Collaborate on Slack</td>
         </tr>
         <tr>
-            <td class='my-tool' rowspan=2 >About This Tool:<br>
-             This is a front end visualization prototype for CIRADA projects. This tool was 
-	     developed for VLASS, but may have more projects in the future. 
+	 <td class='my-carta' rowspan=2> Instructions:<br>
+	 (1) Explore Data using the displays on the left. <br>
+	 (2) Select cutouts and mosaics using the functions on the
+                  right.<br>
+	 (3) Options to link to other resources are above these
+                  instructions. </td>
+            <!--<td class='my-tool' rowspan=2 >About This Tool:<br>-->
+	      <td class='my-tool' rowspan=2 >About This Tool:<br>
+             This is a front end visualization prototype for CIRADA
+                  projects. This mockup of a tool, based on CDS Aladin, was 
+	     developed for VLASS, but may have more projects added for
+                  display on the left in the future. 
 	     This tool was created by Melanie Szpigiel, Professor Jayanne English, and 
-	     Michelle Boyce (University of Manitoba) in 2021.
-
+	    Dr. Michelle Boyce (University of Manitoba) in
+                  2021. Modifications were made May 2022 by English
+                  and Boyce. Future work involves varying the fonts
+                  and using perception-based approachs,
+             incorporating functions, and exploring how to create the
+                  display images efficiently and serve them.  
             </td>
         </tr>
         <tr>
